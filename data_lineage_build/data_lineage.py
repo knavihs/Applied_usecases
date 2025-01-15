@@ -37,11 +37,12 @@ def dfs(node, path, visited_paths, visited_set):
     # Add the current node to the path and mark it as visited in the current path
     path.append(node)
     visited_set.add(node)
-    print(path)
+    print(f'path: {path}')
 
     # If the node has no outgoing edges, we've reached a complete path
     if node not in graph or not graph[node]:
         visited_paths.append(path[:])
+        print(f'visited_paths: {visited_paths}')
     else:
         # Traverse each neighbor
         for neighbor in graph[node]:
@@ -50,6 +51,7 @@ def dfs(node, path, visited_paths, visited_set):
     
     # Backtrack: Remove the current node from path and visited set
     path.pop()
+    print('pop path:',path)
     visited_set.remove(node)
 
 # Find all paths starting from each true source node
